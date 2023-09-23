@@ -1,38 +1,146 @@
-.App {
-  text-align: center;
+body{
+  background: rgb(238,174,202);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .original-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    text-decoration: none;
+    color: #f0f1f5;
+    font-size: 18px;
+    border-radius: 0px;
+    width: 200px;
+    height: 50px;
+    position: relative;
+    transition: 0.3s;
+    overflow: hidden;
   }
+  
+  .original-button::before, .original-button::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    background-color: #515e89;
+    transition: .5s;
+  }
+  
+  .original-button::before {
+    top: 0;
+  }
+  
+  .original-button::after {
+    bottom: 0;
+  }
+  
+  .original-button:hover::before {
+    transform: translateX(-100%);
+  }
+  
+  .original-button:hover::after {
+    transform: translateX(100%);
+  }
+
+
+img {
+  border-radius: 50%;
+  height: 30px;
+  margin-top: -20px;
+  border: 2px solid rgb(173, 162, 162);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+p {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  overflow-wrap: break-word;
+}
+
+.msg {
+  display: flex;
+  padding: 10px 40px 0 10px;
+  margin: 20px;
+  border-radius: 5000px;
+  box-shadow: 0 0 10px rgb(164, 164, 164);
+  align-items: center;
+}
+
+.sent {
+  background-color: #2f2d5d;
+  color: white;
+  border-top-right-radius: 1000px;
+  flex-direction: row-reverse;
+  padding: 20px 20px 0 10px;
+  text-align: end;
+  float: right;
+}
+
+.received {
+  border: 1px solid lightgray;
+  background-color: #FAFAFA;
+  border-top-left-radius: 1000px;
+  float: left;
+}
+
+.sendMsg {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  color: #fff;
+  bottom: 0;
+  z-index: 1;
+  border-top: 1px solid lightgray;
+  margin-left: -10px;
+  padding: 10px;
+  padding-bottom: 30px;
+  background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(8,62,104,1) 46%, rgba(0,212,255,1) 100%);
+}
+
+.msgs {
+  margin: 110px 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+@media (max-width: 775px) {
+  p {
+    font-size: 20px;
+  }
+  .sent {
+    padding: 10px 10px 0 10px;
+  }
+  .received {
+    padding: 10px 10px 0 10px;
+  }
+  img {
+    height: 35px;
+    margin-top: -10px;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 500px) {
+  p {
+    font-size: 15px;
   }
-  to {
-    transform: rotate(360deg);
+  .sent {
+    padding: 7px 7px 0 7px;
+  }
+  .received {
+    padding: 7px 7px 0 7px;
+  }
+  img {
+    height: 30px;
+    margin-top: -7px;
   }
 }
+
